@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="blog-header">
+        <h1 class="blog-title">Bloglist</h1>
+        <hr class="dashed-line">
+        <div>
+            <button type="button" class="btn btn-md btn-outline-secondary" 
+                    ng-click="vm.addBlog()">
+                Add Blog
+            </button>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 blog-main" ng-repeat="blog in vm.allPosts | orderBy: 'id'">
+            <div class="blog-post" style="padding-top: 3%;">
+                <h2 class="blog-post-title">{{ blog.title }}</h2>
+                <p>{{ blog.body }}</p>
+                <button type="button" class="btn btn-md btn-outline-secondary"
+                        ng-click="vm.addLike(blog.id)">
+                    <strong>{{ blog.likes }}</strong> Likes
+                </button>
+                <button type="button" class="btn btn-md btn-outline-secondary" 
+                        ng-click="showComment=true">
+                    <strong>{{ blog.comments.length }}</strong> Comments
+                </button>
+                <button type="button" class="btn btn-md btn-outline-secondary"
+                        ng-click="vm.viewBlog(blog.id)">
+                    Show Detail
+                </button>
+                <div style="padding-top: 3%;" ng-show="showComment">
+                    <ul class="list-group mb-3">
+                        <li ng-repeat="comment in blog.comments" 
+                            class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <small class="text-muted">{{ comment.comment }}</small>
+                            </div>
+                            <span class="text-muted">{{ comment.likes }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

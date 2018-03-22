@@ -1,0 +1,22 @@
+<div class="container">
+    <div class=row>
+        <div class="col-lg-offset-4 col-lg-4">
+            <form novalidate>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" 
+                       ng-model="vm.blog.title">
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea class="form-control" ng-model="vm.blog.body"
+                          id="body" rows="8">
+                </textarea>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary" ng-click="vm.addBlog()">
+                Save
+            </button>
+        </form>
+        </div>
+    </div>
+</div>
