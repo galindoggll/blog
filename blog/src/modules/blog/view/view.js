@@ -19,6 +19,7 @@
         /////////////////////
 
         function activate() {
+            vm.disable = true;
             vm.blog = blogService.getBlog($stateParams.blogId);
         }
 
@@ -34,9 +35,9 @@
         
         function checkComment() {
             if (vm.comment === null || vm.comment === '') {
-                return true;
+                vm.disable = true;
             } else {
-                return false;
+                vm.disable = false;
             }
         }
 

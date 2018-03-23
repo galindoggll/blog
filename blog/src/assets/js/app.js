@@ -6,10 +6,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('manage', {
-            url: '/blog-manage',
-            templateUrl: 'blog/manage/manage.html',
+            url: '/',
             controller: 'ManageBlogController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            templateUrl: 'blog/manage/manage.html'
         })
         .state('add', {
             url: '/blog-add',

@@ -13,7 +13,10 @@
         <div class="col-sm-6 blog-main" ng-repeat="blog in vm.allPosts | orderBy: 'id'">
             <div class="blog-post" style="padding-top: 3%;">
                 <h2 class="blog-post-title">{{ blog.title }}</h2>
-                <p>{{ blog.body }}</p>
+                <p ng-show="blog.body.length > 100">
+                    {{ blog.body | limitTo: 100}}<a ui-sref="view({blogId: blog.id})">...</a>
+                </p>
+                <p ng-show="blog.body.length < 100">{{ blog.body }}</p>
                 <button type="button" class="btn btn-md btn-outline-secondary"
                         ng-click="vm.addLike(blog.id)">
                     <strong>{{ blog.likes }}</strong> Likes

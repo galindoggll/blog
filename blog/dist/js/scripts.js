@@ -35590,10 +35590,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('manage', {
-            url: '/blog-manage',
-            templateUrl: 'blog/manage/manage.html',
+            url: '/',
             controller: 'ManageBlogController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            templateUrl: 'blog/manage/manage.html'
         })
         .state('add', {
             url: '/blog-add',
@@ -35776,6 +35776,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         /////////////////////
 
         function activate() {
+            vm.disable = true;
             vm.blog = blogService.getBlog($stateParams.blogId);
         }
 
@@ -35791,9 +35792,9 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         
         function checkComment() {
             if (vm.comment === null || vm.comment === '') {
-                return true;
+                vm.disable = true;
             } else {
-                return false;
+                vm.disable = false;
             }
         }
 
